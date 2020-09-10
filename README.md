@@ -1,9 +1,11 @@
 <p align="center">
     <a href="https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad">
-        <img src="https://imgur.com/a/w529R8g" width="200px" align="center" alt="Weather app"/>
+        <img src="https://i.imgur.com/VrcM8Xt.png" width="200px" align="center" alt="Weather app"/>
     </a>
 </p>
-<h1 align="center" style="border: 0;"> Buddies Movie </h1>
+<h1 align="center" style="border: 0;">Weather App </h1>
+<h4 align="center" style="border: 0;">Chrome extension </h4>
+
 
 
 This is simple weather app created using React. which shows current weather condition of your city and weather news around from world. It is powered by API which is updated every time, It has easy to use user interface and it have automatically city detection system so you can view your city weather information on extension open. . [Add to your chrome](https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad)
