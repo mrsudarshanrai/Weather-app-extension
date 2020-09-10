@@ -45,6 +45,14 @@ npm start
 ```
 --- 
 
+## Build Project
+
+```
+npm run-script build
+```
+
+After building finish you will see extra 2 directory on folder ```Build``` and ```dist```.You can load ```dist``` as unpacked extension in Chrome and run.
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
