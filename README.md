@@ -50,7 +50,7 @@ npm start
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 ## Author
-* Shudarshan Rai 
+* Sudarshan Rai 
    * https://sudarshanrai.com.np/ 
 * Github
   * https://github.com/Shudarshan/
