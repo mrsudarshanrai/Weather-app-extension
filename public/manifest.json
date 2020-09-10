@@ -1,0 +1,23 @@
+{
+  "manifest_version":2,
+  "name":"Weather App",
+  "version":"1.0",
+  "description":"Weather App from all over country",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "https://newsapi.org"
+  ],
+  "icons":{
+      "128":"/assets/icon128.png",
+      "48":"/assets/icon48.png",
+      "16":"/assets/icon16.png"
+  },
+  "browser_action":{
+      "default_icon":{
+        "16":"/assets/icon16.png",
+        "48":"/assets/icon48.png"
+  },
+      "default_popup": "popup.html"
+  }
+}
