@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad">
-        <img src="https://i.imgur.com/VrcM8Xt.png" width="200px" align="center" alt="Weather app"/>
+        <img src="https://i.imgur.com/x2TEEsw.png" width="200px" align="center" alt="Weather app"/>
     </a>
 </p>
 <h1 align="center" style="border: 0;">Weather App </h1>
