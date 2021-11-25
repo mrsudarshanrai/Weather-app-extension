@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { getCity } from "app/api/locateIpApi";
+import Home from "app/screens/Home";
+import Loader from "app/components/Loader";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [isFetching, setIsFetching] = React.useState(false);
+  const [city, setCity] = React.useState("");
+
+  React.useEffect(() => {
+    setIsFetching(true);
+    getCity()
+      .then((city) => {
+        setCity(city);
+        setIsFetching(false);
+      })
+      .catch(() => {
+        setIsFetching(false);
+      });
+  }, []);
+
+  return <>{isFetching ? <Loader /> : <Home userCity={city} />}</>;
+};
 
 export default App;

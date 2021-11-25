@@ -1,0 +1,39 @@
+.intro-collection {
+  text-align: center;
+  z-index: 1;
+
+  input[type="text"] {
+    outline: none;
+    width: 300px;
+    padding: 10px;
+    color: $primary;
+    border: 0;
+    box-shadow: 1px 1px 10px #aaa;
+
+    &::placeholder {
+      color: $primary;
+      opacity: 1;
+    }
+  }
+
+  .submit-button {
+    transition: 4s;
+    animation: bounce-in-top 1.1s both;
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      background: $primary;
+      border-radius: 100%;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+  .err-message {
+    color: $danger;
+  }
+}
