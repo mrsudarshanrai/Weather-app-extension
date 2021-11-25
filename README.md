@@ -3,7 +3,7 @@
         <img src="https://i.imgur.com/x2TEEsw.png" width="200px" align="center" alt="Weather app"/>
     </a>
 </p>
-<h1 align="center" style="border: 0;">Weather App </h1>
+<h1 align="center" style="border: 0;">Weather App [v1 React] </h1>
 <h4 align="center" style="border: 0;">Chrome extension </h4>
 
 
