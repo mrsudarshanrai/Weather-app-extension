@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+<p align="center">
+    <a href="https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad">
+        <img src="https://i.imgur.com/x2TEEsw.png" width="200px" align="center" alt="Weather app"/>
+    </a>
+</p>
+<h1 align="center" style="border: 0;">Weather App [v1 React | Typescript] </h1>
+<h4 align="center" style="border: 0;">Chrome extension </h4>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is simple weather app created using React. which shows current weather condition of your city and weather news around from world. It is powered by API which is updated every time, It has easy to use user interface and it have automatically city detection system so you can view your city weather information on extension open. [Add to your chrome](https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad)
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+The following software is required to be installed on your system before you procced:
 
-### `npm start`
+- Node 8.x
+- Npm 3.x
+- Git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Type the following commands in the terminal to verify your node and npm versions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+node -v
+npm -v
+```
 
-### `npm run build`
+Now open terminal and clone this github project or download
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/mrsudarshanrai/Weather-app-extension.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run your project in your local machine type this command in terminal
 
-### `npm run eject`
+```
+cd Weather-app-extension
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Build Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm run-script build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After building finish you will see extra 2 directory on folder `Build` and `dist`.You can load `dist` as unpacked extension in Chrome and run.
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
+
+- Sudarshan Rai
+  - https://sudarshanrai.com.np/
+- Github
+  - https://github.com/Shudarshan/
+- Sololearn
+  - https://www.sololearn.com/Profile/4714357
+
+---
