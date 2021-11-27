@@ -39,7 +39,7 @@ const Home = (props: HomeProps) => {
                     {weather?.main?.temp}
                     <span className="degree">°</span>c
                   </h1>
-                  <h4>{weather?.weather[0]?.description}</h4>
+                  {/* <h4>{weather?.weather[0]?.description}</h4> */}
                   <h5 className="big-details-location">
                     <img
                       src={getAssets("location_icon")}

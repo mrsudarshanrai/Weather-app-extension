@@ -7,13 +7,13 @@ import { HomeProps } from "./types";
 
 const Landing = (props: HomeProps) => {
   const { userCity } = props || {};
-  const [city, setCity] = React.useState<string | undefined>(userCity);
+  const [location, setLocation] = React.useState<string | undefined>(userCity);
   return (
     <>
       <div className="main-container">
-        <div className={`intro-container ${city?.length ? "home" : ""}`}>
-          {city?.length ? (
-            <Home userCity={city} />
+        <div className={`intro-container ${location?.length ? "home" : ""}`}>
+          {location?.length ? (
+            <Home userCity={location} />
           ) : (
             <>
               <img
@@ -21,7 +21,7 @@ const Landing = (props: HomeProps) => {
                 src={getAssets("logo")}
                 alt="weather app logo"
               />
-              <NotLoacted setCountry={setCity} />
+              <NotLoacted setLocation={setLocation} />
             </>
           )}
         </div>

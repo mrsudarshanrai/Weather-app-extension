@@ -1,33 +1,34 @@
 import React from "react";
 import { getAssets } from "app/static/Icons";
 import { isEmpty } from "app/utils";
-import { NotLocatedTypes } from "./types";
+import { INotLoacted } from "app/types/IScreens/INotLoacted";
 
-const NotLoacted = (props: NotLocatedTypes) => {
-  const { setCountry } = props || {};
-  const countryInputRef = React.useRef<HTMLInputElement>(null);
+const NotLoacted = (props: INotLoacted.IProps) => {
+  const { setLocation } = props || {};
+  const locationInputRef = React.useRef<HTMLInputElement>(null);
   const [errMessage, setErrMessage] = React.useState<string | null>(
-    "Failed to locate your city. Please try adding city manually."
+    "Failed to locate your location. Please try adding city manually."
   );
 
-  const handleSearchWeather = () => {
-    const { value } = countryInputRef?.current || {};
-    if (isEmpty(value)) setErrMessage("Please enter a country name");
-    else setCountry(value);
-  };
+  const events: INotLoacted.IEvents = {
+    searchWeather: () => {
+      const { value } = locationInputRef?.current || {};
+      if (isEmpty(value)) setErrMessage("Please enter a location.");
+      else setLocation(value);
+    }
+  }
 
   return (
-    <div className="intro-collection">
+    <div className="not_located_container">
       <input
-        ref={countryInputRef}
+        ref={locationInputRef}
         type="text"
-        className="country"
         autoFocus
-        placeholder="Your city Name"
+        placeholder="Your Location"
       />
-      <div className="submit-button">
-        <button className="submit_country" onClick={handleSearchWeather}>
-          <img src={getAssets("Arrow_left")} alt="icon" width="20px" />
+      <div className="city_submit_button">
+        <button onClick={() => events.searchWeather()}>
+          <img src={getAssets("Arrow_left")} alt="submit" width="20px" />
         </button>
       </div>
       <p className="err-message">{errMessage}</p>
