@@ -1,8 +1,8 @@
-import { getAssets } from "app/static/Icons";
+import { getAssets } from "app/utils/Icons";
 
 const Loader = () => {
   return (
-    <div className="main-loader">
+    <div className="loader">
       <img src={getAssets("logo")} alt="icon" />
     </div>
   );

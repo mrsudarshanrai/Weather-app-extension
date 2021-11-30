@@ -1,17 +1,17 @@
 import React from "react";
-import { getCity } from "app/api/locateIpApi";
+import { getLocation } from "app/api/locateIpApi";
 import Home from "app/screens/Home";
 import Loader from "app/components/Loader";
 
 const App = () => {
   const [isFetching, setIsFetching] = React.useState(false);
-  const [city, setCity] = React.useState("");
+  const [location, setLocation] = React.useState("");
 
   React.useEffect(() => {
     setIsFetching(true);
-    getCity()
+    getLocation()
       .then((city) => {
-        setCity(city);
+        setLocation(city);
         setIsFetching(false);
       })
       .catch(() => {
@@ -19,7 +19,7 @@ const App = () => {
       });
   }, []);
 
-  return <>{isFetching ? <Loader /> : <Home userCity={city} />}</>;
+  return <>{isFetching ? <Loader /> : <Home userLocation={location} />}</>;
 };
 
 export default App;

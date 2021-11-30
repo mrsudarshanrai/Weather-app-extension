@@ -1,37 +1,85 @@
 import React from "react";
-import { getAssets } from "app/static/Icons";
+import { getAssets } from "app/utils/Icons";
 import { getWeatherApi } from "app/api/getWeatherApi";
-import { HomeProps } from "./types";
+import { getCurrentDay, getCurrentTime } from "app/utils";
+import { IHome } from "app/types/IScreens/IHome";
 
-const Home = (props: HomeProps) => {
-  const { userCity } = props || {};
-  const [weather, setWeather] = React.useState<any>({});
+const Home = (props: IHome.IProps) => {
+  const { userLocation } = props || {};
+  const [location, setLocation] = React.useState<string>("");
+  const [weather, setWeather] = React.useState<IHome.IWeather>({
+    weather: [],
+    sys: { sunrise: 0, sunset: 0 },
+  });
 
-  const getWeather = (city: string) => getWeatherApi(city, "metric");
+  const getWeather = (location: string) => getWeatherApi(location, "metric");
 
   React.useEffect(() => {
-    getWeather(userCity).then((res) => {
-      setWeather(res);
-    });
-  }, [userCity]);
+    if (location?.length)
+      getWeather(location).then((res: IHome.IWeather) => {
+        setWeather(res);
+      });
+  }, [location]);
 
+  React.useEffect(() => {
+    if (userLocation) {
+      setLocation(userLocation);
+    }
+  }, [userLocation]);
+  const renderData: IHome.IRender_Data[] = [
+    {
+      title: `Current time is ${getCurrentTime()}`,
+      icon: "time_icon",
+      value: getCurrentTime(),
+    },
+    {
+      title: `Todaty is ${getCurrentDay()}`,
+      icon: "day_icon",
+      value: getCurrentDay(),
+    },
+    {
+      title: "Humidity",
+      icon: "humidity_icon",
+      value: weather?.main?.humidity + "%",
+    },
+    {
+      title: "Wind KM/H",
+      icon: "wind_icon",
+      value: weather?.wind?.speed + " km/h",
+    },
+    {
+      title: `Sunrise at ${new Date(weather?.sys?.sunrise * 1000)}`,
+      icon: "sunrise_icon",
+      value: new Date(weather?.sys?.sunrise * 1000).toLocaleTimeString(),
+    },
+    {
+      title: `Sunset at ${new Date(weather?.sys?.sunset * 1000)}`,
+      icon: "sunset_icon",
+      value: new Date(weather?.sys?.sunset * 1000).toLocaleTimeString(),
+    },
+  ];
+
+  const events: IHome.IEvents = {
+    onLocationChange: (event) => {
+      if (event.key === "Enter") setLocation(event?.currentTarget?.value);
+    },
+  };
   return (
     <div className="weather-container">
       <div className="input-country">
         <img src={getAssets("search_icon")} alt="icon" width="20px" />
         <input
           type="text"
-          // onChange={this.handleInputCity}
-          // onKeyDown={this.handleKeyDown}
-          placeholder="your City"
+          onKeyDown={(e) => events.onLocationChange(e)}
+          placeholder="location, city or country"
         />
       </div>
       <div className="big-details">
         <input type="radio" name="slider" id="slide1" defaultChecked />
         <input type="radio" name="slider" id="slide2" />
         <input type="radio" name="slider" id="slide3" />
-        <div id="slides">
-          <div id="overflow">
+        <div className="slides">
+          <div className="overflow">
             <div className="inner">
               <div className="slide slide_1">
                 <div className="slide-content">
@@ -39,7 +87,16 @@ const Home = (props: HomeProps) => {
                     {weather?.main?.temp}
                     <span className="degree">°</span>c
                   </h1>
-                  {/* <h4>{weather?.weather[0]?.description}</h4> */}
+                  <h4 className="weather-description">
+                    {weather?.weather[0]?.description}
+                    {weather?.weather[0]?.icon && (
+                      <img
+                        src={`http://openweathermap.org/img/w/${weather?.weather[0]?.icon}.png`}
+                        width="35px"
+                        alt={weather?.weather[0]?.description}
+                      />
+                    )}
+                  </h4>
                   <h5 className="big-details-location">
                     <img
                       src={getAssets("location_icon")}
@@ -65,43 +122,25 @@ const Home = (props: HomeProps) => {
             </div>
           </div>
         </div>
-        <div id="controls">
+        <div className="controls">
           <label htmlFor="slide1"></label>
           <label htmlFor="slide2"></label>
           <label htmlFor="slide3"></label>
           <label htmlFor="slide4"></label>
         </div>
-        <div id="bullets">
+        <div className="bullets">
           <label htmlFor="slide1"></label>
           <label htmlFor="slide2"></label>
           <label htmlFor="slide3"></label>
         </div>
       </div>
       <div className="weather-info">
-        <div className="details">
-          <img src={"Time_icon"} alt="icon" />
-          {/* <p>{getCurrentTime()}</p> */}
-        </div>
-        <div className="details">
-          <img src={"Day_icon"} alt="icon" />
-          {/* <p>{getCurrentDay()}</p> */}
-        </div>
-        <div className="details">
-          <img src={"Temp_icon"} alt="icon" />
-          {/* <p>{`${weather.temperature}°c`}</p> */}
-        </div>
-        <div className="details">
-          <img src={"Humidity_icon"} alt="icon" />
-          {/* <p>{`${weather.humidity}%`}</p> */}
-        </div>
-        <div className="details">
-          <img src={"Wind_icon"} alt="icon" />
-          {/* <p>{`${weather.wind} km/h`}</p> */}
-        </div>
-        <div className="details">
-          <img src={"News_icon"} alt="icon" />
-          <p>weather news</p>
-        </div>
+        {renderData?.map((data, index) => (
+          <div className="details" title={data.title} key={index}>
+            <img src={getAssets(data.icon)} alt={data.icon} />
+            <p>{data?.value}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

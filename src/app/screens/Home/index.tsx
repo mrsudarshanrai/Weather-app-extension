@@ -1,19 +1,21 @@
 import React from "react";
-import { getAssets } from "app/static/Icons";
+import { getAssets } from "app/utils/Icons";
 
 import NotLoacted from "../NotLocated";
 import Home from "./Home";
-import { HomeProps } from "./types";
+import { IHome } from "app/types/IScreens/IHome";
 
-const Landing = (props: HomeProps) => {
-  const { userCity } = props || {};
-  const [location, setLocation] = React.useState<string | undefined>(userCity);
+const Landing = (props: IHome.IProps) => {
+  const { userLocation } = props || {};
+  const [location, setLocation] = React.useState<string | undefined>(
+    userLocation
+  );
   return (
     <>
       <div className="main-container">
         <div className={`intro-container ${location?.length ? "home" : ""}`}>
           {location?.length ? (
-            <Home userCity={location} />
+            <Home userLocation={location} />
           ) : (
             <>
               <img

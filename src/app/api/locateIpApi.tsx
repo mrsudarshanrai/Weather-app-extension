@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getCity = () => {
+const getLocation = () => {
   return axios
     .get("http://ip-api.com/json")
     .then((response) => {
@@ -11,4 +11,4 @@ const getCity = () => {
     });
 };
 
-export { getCity };
+export { getLocation };

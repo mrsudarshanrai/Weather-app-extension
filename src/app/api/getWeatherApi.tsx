@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const getWeatherApi = (city: string, units: string) => {
+const getWeatherApi = (location: string, units: string) => {
   return axios
     .get("https://api.openweathermap.org/data/2.5/weather", {
       params: {
-        q: city,
+        q: location,
         units,
         appId: process.env.REACT_APP_API_ID,
       },
