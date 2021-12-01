@@ -15,6 +15,7 @@ const assets: Assets = {
   wind_icon: require("app/assets/icons/wind.svg")?.default,
   sunrise_icon: require("app/assets/icons/sunrise.svg")?.default,
   sunset_icon: require("app/assets/icons/sunset.svg")?.default,
+  madeWithLove_icon: require("app/assets/icons/made-with-love.svg")?.default,
 };
 
 /**

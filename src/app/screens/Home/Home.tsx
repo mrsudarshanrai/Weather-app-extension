@@ -167,6 +167,15 @@ const Home = (props: IHome.IProps) => {
             <p>{data?.value}</p>
           </div>
         ))}
+        <div className="built-with-love">
+          <a
+            href="https://github.com/mrsudarshanrai/Weather-app-extension"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={getAssets("madeWithLove_icon")} alt="made with love" />
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -204,3 +204,13 @@
     }
   }
 }
+.built-with-love {
+  text-align: center;
+  grid-column: 1 / span 3;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+  }
+}

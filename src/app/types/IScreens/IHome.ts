@@ -44,7 +44,8 @@ export type Icons =
   | "humidity_icon"
   | "wind_icon"
   | "sunrise_icon"
-  | "sunset_icon";
+  | "sunset_icon"
+  | "madeWithLove_icon";
 
 export type IMetric = "metric" | "imperial";
 export interface Clouds {
