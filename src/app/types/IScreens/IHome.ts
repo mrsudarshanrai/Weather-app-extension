@@ -7,6 +7,7 @@ export namespace IHome {
 
   export interface IEvents {
     onLocationChange: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    onChangeMetric: (metric: IMetric) => void; //Metric system for temperature https://openweathermap.org/current
   }
   export interface IWeather {
     coord?: Coord;
@@ -45,6 +46,7 @@ export type Icons =
   | "sunrise_icon"
   | "sunset_icon";
 
+export type IMetric = "metric" | "imperial";
 export interface Clouds {
   all?: number; // Cloudiness, %
 }

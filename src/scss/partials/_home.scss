@@ -8,6 +8,20 @@
   border-top-right-radius: 70px;
   box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.1);
 
+  .metric-switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0 5px;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    color: $white;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+    }
+  }
   .input-country {
     position: absolute;
     top: -280px;
@@ -34,7 +48,7 @@
       }
     }
   }
-  .big-details {
+  .slider-details {
     position: absolute;
     top: -230px;
     left: 50%;
@@ -161,7 +175,7 @@
     h4 {
       margin: 15px 0 0 0;
     }
-    .big-details-location {
+    .slider-details-location {
       display: flex;
       align-items: center;
       justify-content: center;

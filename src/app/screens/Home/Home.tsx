@@ -7,19 +7,21 @@ import { IHome } from "app/types/IScreens/IHome";
 const Home = (props: IHome.IProps) => {
   const { userLocation } = props || {};
   const [location, setLocation] = React.useState<string>("");
+  const [metric, setMetric] = React.useState<string>("metric");
   const [weather, setWeather] = React.useState<IHome.IWeather>({
     weather: [],
     sys: { sunrise: 0, sunset: 0 },
   });
 
-  const getWeather = (location: string) => getWeatherApi(location, "metric");
+  const getWeather = (location: string, metric: string) =>
+    getWeatherApi(location, metric);
 
   React.useEffect(() => {
-    if (location?.length)
-      getWeather(location).then((res: IHome.IWeather) => {
-        setWeather(res);
-      });
-  }, [location]);
+    getWeather(location, metric).then((res: IHome.IWeather) => {
+      setWeather(res);
+      console.log(res);
+    });
+  }, [location, metric]);
 
   React.useEffect(() => {
     if (userLocation) {
@@ -45,7 +47,7 @@ const Home = (props: IHome.IProps) => {
     {
       title: "Wind KM/H",
       icon: "wind_icon",
-      value: weather?.wind?.speed + " km/h",
+      value: weather?.wind?.speed + `${metric === "metric" ? " km/h" : " mph"}`,
     },
     {
       title: `Sunrise at ${new Date(weather?.sys?.sunrise * 1000)}`,
@@ -63,6 +65,7 @@ const Home = (props: IHome.IProps) => {
     onLocationChange: (event) => {
       if (event.key === "Enter") setLocation(event?.currentTarget?.value);
     },
+    onChangeMetric: (metric) => setMetric(metric),
   };
   return (
     <div className="weather-container">
@@ -74,7 +77,24 @@ const Home = (props: IHome.IProps) => {
           placeholder="location, city or country"
         />
       </div>
-      <div className="big-details">
+      {metric === "metric" ? (
+        <h3
+          className="metric-switch"
+          title="Change to degree Fahrenheit"
+          onClick={() => events.onChangeMetric("imperial")}
+        >
+          °C
+        </h3>
+      ) : (
+        <h3
+          className="metric-switch"
+          title="Change to degree Celsius"
+          onClick={() => events.onChangeMetric("metric")}
+        >
+          °F
+        </h3>
+      )}
+      <div className="slider-details">
         <input type="radio" name="slider" id="slide1" defaultChecked />
         <input type="radio" name="slider" id="slide2" />
         <input type="radio" name="slider" id="slide3" />
@@ -84,8 +104,9 @@ const Home = (props: IHome.IProps) => {
               <div className="slide slide_1">
                 <div className="slide-content">
                   <h1>
-                    {weather?.main?.temp}
-                    <span className="degree">°</span>c
+                    {weather?.main?.temp?.toFixed(0)}
+                    <span className="degree">°</span>
+                    {metric === "metric" ? "C" : "F"}
                   </h1>
                   <h4 className="weather-description">
                     {weather?.weather[0]?.description}
@@ -97,7 +118,7 @@ const Home = (props: IHome.IProps) => {
                       />
                     )}
                   </h4>
-                  <h5 className="big-details-location">
+                  <h5 className="slider-details-location">
                     <img
                       src={getAssets("location_icon")}
                       alt="icon"
@@ -115,7 +136,9 @@ const Home = (props: IHome.IProps) => {
               </div>
               <div className="slide slide_3">
                 <div className="slide-content">
-                  <h1>{`${weather?.wind?.speed} km/h`}</h1>
+                  <h1>{`${weather?.wind?.speed} ${
+                    metric === "metric" ? " km/h" : " mph"
+                  }`}</h1>
                   <h4>Wind speed</h4>
                 </div>
               </div>
