@@ -5,8 +5,7 @@
   "description": "The best way to see the Weather Forecast right in your browser of all over the world. Easier than looking outside!",
   "permissions": [
     "webRequest",
-    "webRequestBlocking",
-    "https://newsapi.org"
+    "webRequestBlocking"
   ],
   "icons": {
     "128": "/assets/icon128.png",
