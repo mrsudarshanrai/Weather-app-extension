@@ -3,10 +3,13 @@
         <img src="https://i.imgur.com/x2TEEsw.png" width="200px" align="center" alt="Weather app"/>
     </a>
 </p>
-<h1 align="center" style="border: 0;">Weather App [v1 React | Typescript] </h1>
-<h4 align="center" style="border: 0;">Chrome extension </h4>
+<h1 align="center" style="border: 0;">Weather App <sub><small>[v0.2 React | Typescript]</small></sub> </h1>
+<h4 align="center" style="border: 0;">Chrome extension<br/> <img src="https://img.shields.io/badge/License-MIT-red.svg"/>&nbsp;<img src="https://img.shields.io/badge/--3178C6?logo=typescript&logoColor=ffffff"/>
+<img src="https://img.shields.io/badge/--F7DF1E?logo=javascript&logoColor=000"/>
+<img src="https://badgen.net/badge/icon/npm?icon=npm&label"/>
+</h4>
 
-This is simple weather app created using React. which shows current weather condition of your city and weather news around from world. It is powered by API which is updated every time, It has easy to use user interface and it have automatically city detection system so you can view your city weather information on extension open. [Add to your chrome](https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad)
+This is a simple weather extension created using React for the browser. Which shows the current weather conditions of your location. It is powered by an API which is updated every time. It has an easy to-use user interface and you don't have to keep looking outside for weather forecasts . [Add to your chrome](https://chrome.google.com/webstore/detail/weather-app/mfhfabihcpklaoadegkbfpfbenneniad)
 
 ## Prerequisites
 
@@ -14,14 +17,11 @@ The following software is required to be installed on your system before you pro
 
 - Node 8.x
 - Npm 3.x
-- Git
-
----
 
 ## Installation
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-Type the following commands in the terminal to verify your node and npm versions
+Type the following commands in the terminal to verify your node and npm are installed.
 
 ```
 node -v
@@ -52,19 +52,8 @@ npm start
 npm run-script build
 ```
 
-After building finish you will see extra 2 directory on folder `Build` and `dist`.You can load `dist` as unpacked extension in Chrome and run.
+After building finishes you will see an extra folder `build`. You can now load a `build` folder in browser extension as [unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/)..
 
-## License
+## Connect with me
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-
-## Author
-
-- Sudarshan Rai
-  - https://sudarshanrai.com.np/
-- Github
-  - https://github.com/Shudarshan/
-- Sololearn
-  - https://www.sololearn.com/Profile/4714357
-
----
+[Portfolio](https://sudarshanrai.com.np/) | [Sololearn](https://www.sololearn.com/Profile/4714357)
