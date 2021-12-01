@@ -4,7 +4,7 @@ const getWeatherApi = (location: string, units: string) => {
   return axios
     .get("https://api.openweathermap.org/data/2.5/weather", {
       params: {
-        q: location,
+        q: location || "kathmandu",
         units,
         appId: process.env.REACT_APP_API_ID,
       },

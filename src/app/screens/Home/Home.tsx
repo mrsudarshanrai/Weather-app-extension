@@ -19,7 +19,6 @@ const Home = (props: IHome.IProps) => {
   React.useEffect(() => {
     getWeather(location, metric).then((res: IHome.IWeather) => {
       setWeather(res);
-      console.log(res);
     });
   }, [location, metric]);
 
@@ -27,6 +26,7 @@ const Home = (props: IHome.IProps) => {
     if (userLocation) {
       setLocation(userLocation);
     }
+    setMetric(localStorage.getItem("metric") || "metric");
   }, [userLocation]);
   const renderData: IHome.IRender_Data[] = [
     {
@@ -65,7 +65,10 @@ const Home = (props: IHome.IProps) => {
     onLocationChange: (event) => {
       if (event.key === "Enter") setLocation(event?.currentTarget?.value);
     },
-    onChangeMetric: (metric) => setMetric(metric),
+    onChangeMetric: (metric) => {
+      setMetric(metric);
+      localStorage.setItem("metric", metric);
+    },
   };
   return (
     <div className="weather-container">
