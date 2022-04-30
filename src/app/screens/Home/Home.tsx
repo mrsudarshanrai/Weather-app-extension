@@ -25,6 +25,7 @@ const Home = (props: IHome.IProps) => {
   React.useEffect(() => {
     if (userLocation) {
       setLocation(userLocation);
+      localStorage.setItem("defaultLocation", userLocation);
     }
     setMetric(localStorage.getItem("metric") || "metric");
   }, [userLocation]);
@@ -63,7 +64,11 @@ const Home = (props: IHome.IProps) => {
 
   const events: IHome.IEvents = {
     onLocationChange: (event) => {
-      if (event.key === "Enter") setLocation(event?.currentTarget?.value);
+      if (event.key === "Enter") {
+        const { value } = event.currentTarget;
+        setLocation(value);
+        localStorage.setItem("defaultLocation", value);
+      }
     },
     onChangeMetric: (metric) => {
       setMetric(metric);
@@ -76,6 +81,7 @@ const Home = (props: IHome.IProps) => {
         <img src={getAssets("search_icon")} alt="icon" width="20px" />
         <input
           type="text"
+          defaultValue={location}
           onKeyDown={(e) => events.onLocationChange(e)}
           placeholder="location, city or country"
         />

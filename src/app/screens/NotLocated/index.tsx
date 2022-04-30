@@ -14,7 +14,10 @@ const NotLoacted = (props: INotLoacted.IProps) => {
     searchWeather: () => {
       const { value } = locationInputRef?.current || {};
       if (isEmpty(value)) setErrMessage("Please enter a location.");
-      else setLocation(value);
+      else {
+        localStorage.setItem("defaultLocation", value as string);
+        setLocation(value as string);
+      }
     },
   };
 
