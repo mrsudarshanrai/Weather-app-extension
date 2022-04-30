@@ -7,14 +7,13 @@ import { IHome } from "app/types/IScreens/IHome";
 
 const Landing = (props: IHome.IProps) => {
   const { userLocation } = props || {};
-  const [location, setLocation] = React.useState<string | undefined>(
-    userLocation
-  );
+  const [location, setLocation] = React.useState<string>(userLocation);
+
   return (
     <>
       <div className="main-container">
         <div className={`intro-container ${location?.length ? "home" : ""}`}>
-          {location?.length ? (
+          {location ? (
             <Home userLocation={location} />
           ) : (
             <>
